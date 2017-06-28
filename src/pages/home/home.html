@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      NFC-Access Card
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Please Scan Access Card</h1>
+  <ion-card *ngIf="scanned && granted" class="granted">
+    <ion-card-header>
+      Access Granted
+    </ion-card-header>
+    <ion-card-content>
+      <p>Account Tag ID: {{ tagId  }}</p>
+      <p>The access of this account is verified.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="scanned && !granted" class="denied">
+    <ion-card-header>
+      Access Denied
+    </ion-card-header>
+    <ion-card-content>
+      <p>Account Tag ID: {{ tagId  }}</p>
+      <p>The account is not recognized or it's access is denied.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
